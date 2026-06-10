@@ -73,7 +73,7 @@ function App() {
   const [copied, setCopied] = useState(false)
   const [copiedReview, setCopiedReview] = useState(false)
   const [suggIdx, setSuggIdx] = useState(0)
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(true)
   const dropRef = useRef(null)
 
   useEffect(() => {
