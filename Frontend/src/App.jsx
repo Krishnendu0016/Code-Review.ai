@@ -104,7 +104,8 @@ function App() {
     setIsLoading(true)
     setReview(``)
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', {
+      const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+      const response = await axios.post(`${backendUrl}/ai/get-review`, {
         code,
         language,
       })
@@ -113,7 +114,7 @@ function App() {
       const serverMsg = err.response?.data
       const status = err.response?.status
       if (!err.response) {
-        setReview(`**Connection Error:** Could not reach the backend. Make sure the server is running on port 3000.`)
+        setReview(`**Connection Error:** Could not reach the backend. Make sure the server is running.`)
       } else if (status === 429) {
         setReview(`**Rate Limited (429):** The Gemini API free-tier quota is exceeded. Please wait a minute and try again.`)
       } else if (serverMsg && typeof serverMsg === 'string' && serverMsg.length < 400) {
