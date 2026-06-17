@@ -438,6 +438,7 @@ kbd {
   background: var(--accent-soft-bg);
   border-right: 1px solid var(--border-subtle);
   flex-shrink: 0; user-select: none;
+  overflow: hidden;
   transition: background 0.3s ease;
 }
 

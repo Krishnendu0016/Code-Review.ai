@@ -75,6 +75,8 @@ function App() {
   const [suggIdx, setSuggIdx] = useState(0)
   const [isDark, setIsDark] = useState(true)
   const dropRef = useRef(null)
+  const lineNumbersRef = useRef(null)
+  const editorBodyRef = useRef(null)
 
   useEffect(() => {
     prism.highlightAll()
@@ -256,12 +258,24 @@ function App() {
           </div>
 
           <div className="editor-wrapper">
-            <div className="line-numbers" aria-hidden="true">
+            <div
+              className="line-numbers"
+              aria-hidden="true"
+              ref={lineNumbersRef}
+            >
               {Array.from({ length: lineCount }, (_, i) => (
                 <div key={i} className="line-number">{i + 1}</div>
               ))}
             </div>
-            <div className="editor-body">
+            <div
+              className="editor-body"
+              ref={editorBodyRef}
+              onScroll={(e) => {
+                if (lineNumbersRef.current) {
+                  lineNumbersRef.current.scrollTop = e.currentTarget.scrollTop
+                }
+              }}
+            >
               <Editor
                 value={code}
                 onValueChange={setCode}
