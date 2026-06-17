@@ -352,12 +352,18 @@ kbd {
   color: var(--text-primary);
 }
 
-.lang-ext {
-  font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent-dark);
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
+.lang-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+}
+.lang-icon-wrapper i {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
 }
 .lang-name { font-weight: 500; }
 .lang-chevron { font-size: 0.55rem; opacity: 0.5; margin-left: 2px; }
@@ -399,10 +405,19 @@ kbd {
 }
 .lang-option:hover { background: var(--accent-soft-bg); color: var(--text-primary); }
 .lang-option.active { background: var(--accent-soft-bg); color: var(--accent-dark); font-weight: 600; }
-.lang-option-ext {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem; font-weight: 700;
-  color: var(--accent); width: 28px; flex-shrink: 0;
+.lang-option-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.lang-option-icon-wrapper i {
+  font-size: 0.95rem;
+  line-height: 1;
+  display: inline-block;
 }
 .lang-check { margin-left: auto; color: var(--accent); font-size: 0.75rem; }
 

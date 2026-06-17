@@ -21,21 +21,21 @@ PRISM_LANGS.forEach(lang => {
 })
 
 const LANGUAGES = [
-  { id: 'javascript', label: 'JavaScript', ext: 'JS' },
-  { id: 'typescript', label: 'TypeScript', ext: 'TS' },
-  { id: 'python', label: 'Python', ext: 'PY' },
-  { id: 'java', label: 'Java', ext: 'JV' },
-  { id: 'c', label: 'C', ext: 'C' },
-  { id: 'cpp', label: 'C++', ext: 'C++' },
-  { id: 'csharp', label: 'C#', ext: 'C#' },
-  { id: 'go', label: 'Go', ext: 'GO' },
-  { id: 'rust', label: 'Rust', ext: 'RS' },
-  { id: 'php', label: 'PHP', ext: 'PHP' },
-  { id: 'ruby', label: 'Ruby', ext: 'RB' },
-  { id: 'swift', label: 'Swift', ext: 'SW' },
-  { id: 'kotlin', label: 'Kotlin', ext: 'KT' },
-  { id: 'sql', label: 'SQL', ext: 'SQL' },
-  { id: 'bash', label: 'Bash', ext: 'SH' },
+  { id: 'javascript', label: 'JavaScript', ext: 'JS', icon: 'devicon-javascript-plain colored' },
+  { id: 'typescript', label: 'TypeScript', ext: 'TS', icon: 'devicon-typescript-plain colored' },
+  { id: 'python', label: 'Python', ext: 'PY', icon: 'devicon-python-plain colored' },
+  { id: 'java', label: 'Java', ext: 'JV', icon: 'devicon-java-plain colored' },
+  { id: 'c', label: 'C', ext: 'C', icon: 'devicon-c-plain colored' },
+  { id: 'cpp', label: 'C++', ext: 'C++', icon: 'devicon-cplusplus-plain colored' },
+  { id: 'csharp', label: 'C#', ext: 'C#', icon: 'devicon-csharp-plain colored' },
+  { id: 'go', label: 'Go', ext: 'GO', icon: 'devicon-go-original-wordmark colored' },
+  { id: 'rust', label: 'Rust', ext: 'RS', icon: 'devicon-rust-original' },
+  { id: 'php', label: 'PHP', ext: 'PHP', icon: 'devicon-php-plain colored' },
+  { id: 'ruby', label: 'Ruby', ext: 'RB', icon: 'devicon-ruby-plain colored' },
+  { id: 'swift', label: 'Swift', ext: 'SW', icon: 'devicon-swift-plain colored' },
+  { id: 'kotlin', label: 'Kotlin', ext: 'KT', icon: 'devicon-kotlin-plain colored' },
+  { id: 'sql', label: 'SQL', ext: 'SQL', icon: 'devicon-sqlite-plain colored' },
+  { id: 'bash', label: 'Bash', ext: 'SH', icon: 'devicon-bash-plain' },
 ]
 
 const SAMPLE_CODES = {
@@ -221,7 +221,9 @@ function App() {
                   onClick={() => setLangDropOpen(o => !o)}
                   title="Select language"
                 >
-                  <span className="lang-ext">{currentLang.ext}</span>
+                  <span className="lang-icon-wrapper">
+                    <i className={currentLang.icon}></i>
+                  </span>
                   <span className="lang-name">{currentLang.label}</span>
                   <span className="lang-chevron">{langDropOpen ? '▲' : '▼'}</span>
                 </button>
@@ -233,7 +235,9 @@ function App() {
                         className={`lang-option ${lang.id === language ? 'active' : ''}`}
                         onClick={() => selectLanguage(lang)}
                       >
-                        <span className="lang-option-ext">{lang.ext}</span>
+                        <span className="lang-option-icon-wrapper">
+                          <i className={lang.icon}></i>
+                        </span>
                         <span>{lang.label}</span>
                         {lang.id === language && <span className="lang-check">✓</span>}
                       </button>
